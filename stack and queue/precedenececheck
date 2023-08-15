@@ -1,0 +1,26 @@
+def check(expression):
+    operends = set(['+','-','*','/'])
+    stack = []
+    output = []
+    precedence = {'-':1,'+': 2,'*':3,'/':4}
+
+    for char in expression:
+        if char not in operends:
+            output.append(char)
+        elif char == '(':
+            stack.append(char)
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                output.append(stack.pop())
+            stack.pop()
+        else:
+            while stack and stack[-1] != '(' and precedence[char] < precedence[stack[-1]]:
+                output.append(stack.pop())
+            stack.append(char)
+        while stack:
+            output.append(stack.pop())
+        return output
+
+expession = "(1+4)*5"
+result = check(expession)
+print(result)

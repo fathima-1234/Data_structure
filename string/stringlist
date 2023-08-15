@@ -1,0 +1,3 @@
+string = "hello"
+convert=string[-1] + string[0:4]
+print(convert)

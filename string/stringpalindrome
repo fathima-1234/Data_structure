@@ -1,0 +1,15 @@
+p = input("enter the string")
+print(p)
+# j = -1
+found = False
+length = len(p)
+
+for i in range(length // 2):
+    if p[i] != p[length - i - 1] :
+        found == True
+        break
+    # j = j - 1
+if  found:
+   print("it is not palindrome ")
+else:
+   print("it is  a palindrome ")

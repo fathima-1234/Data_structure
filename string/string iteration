@@ -1,0 +1,4 @@
+# String iteration
+message= " hii fathima"
+for char in message:
+    print(char)

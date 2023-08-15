@@ -1,0 +1,23 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+def linkedlist_to_list(head):
+    result = []
+    current = head
+    while current:
+        result.append(current.data)
+        current = current.next
+    return result
+
+# Create a linked list
+head = Node(1)
+node2 = Node(2)
+node3 = Node(3)
+head.next = node2
+node2.next = node3
+
+# Convert the linked list to a list
+result_list = linkedlist_to_list(head)
+print(result_list)

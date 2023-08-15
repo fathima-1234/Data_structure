@@ -1,0 +1,9 @@
+def simple_hash(key, size):
+    hash_code = sum(ord(char) for char in key) % size
+    return hash_code
+
+key = "banana"
+table_size = 10
+
+hash_value = simple_hash(key, table_size)
+print(f"The hash code for '{key}' is: {hash_value}")

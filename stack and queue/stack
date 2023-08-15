@@ -1,0 +1,224 @@
+class Stack:
+    def __init__(self):
+
+        self.item = []
+
+
+    def is_empty(self):
+
+        return len(self.item) == 0
+
+
+    def push(self,item):
+        self.item.append(item)
+
+    def pop(self):
+
+        return self.item.pop()
+   
+
+    def print_item(self):
+
+        if  self.is_empty:
+
+            print("stack is empty")
+        else:
+            print(self.item)
+
+    def middle_element_delete(self):
+
+        mid = len(self.item)//2
+
+        temp_stack = Stack()
+
+
+        for i in range(mid):
+
+            temp_stack.push(self.pop())
+        self.pop()
+
+
+        while not temp_stack.is_empty():
+
+            self.push(temp_stack.pop())
+    def find_middle(self):
+
+        mid = len(self.item)//2
+
+        if len(self.item) % 2 == 0:
+
+            mid = mid -1
+
+
+        print( self.item[mid])
+
+    def top(self):
+
+        if self.is_empty():
+
+            print("Stack is empty!")
+
+        else:
+
+            print(self.item[0])
+
+
+    def second_largest(self):
+
+        if self.is_empty():
+
+            print("stack is empty")
+
+        else:
+
+            largest = self.item[0]
+
+            second_largest = self.item[1]
+            for element in self.item:
+
+                if element > largest:
+
+                    second_largest = largest
+
+                    largest = element
+
+                elif element >second_largest:
+
+                    second_largest = element
+
+             
+            return second_largest
+
+
+    def add_at_middle(self, x):
+
+        if self.is_empty():
+
+            print("stack is empty")
+        else:
+
+            aux_stack = []
+
+            mid = len(self.items) // 2
+
+
+            for i in range(mid):
+
+                aux_stack.append(self.pop())
+
+            aux_stack.append(x)
+
+
+            while aux_stack:
+
+                self.items.append(aux_stack.pop())
+
+    def add_at_position(self,x,pos):
+
+        if not self.is_empty():
+
+            print("stack is empty")
+
+
+        auto_stack = Stack()
+
+        while len(self.item) > pos-1:
+            auto_stack.append(self.pop())
+
+        auto_stack.append(x)
+
+        while auto_stack:
+            self.item.append(auto_stack.pop())
+
+
+    def update_value(self, x, value):
+
+        if self.is_empty():
+
+            print("stack is empty")
+        else:
+
+            found = False
+
+            aux_stack = []
+
+            while self.items:
+
+                element = self.pop()
+
+                if element == value:
+
+                    element = x
+
+                    found = True
+
+                aux_stack.append(element)
+            if not found:
+
+                print("Item not found")
+
+            while aux_stack:
+
+                self.items.append(aux_stack.pop())
+
+    def reverse_string(input_str):
+
+        auto_stack = Stack()
+
+
+    # Push each character onto the stack
+        for i in input_str:
+
+            auto_stack.push(i)
+
+
+        reversed_str = ""
+
+
+    # Pop each character from the stack and append it to the reversed string
+
+        while not auto_stack.is_empty():
+
+            reversed_str += auto_stack.pop()
+
+
+        return reversed_str
+
+
+
+# Example usage
+
+    input_string = "Hello, World!"
+
+    reversed_string = reverse_string(input_string)
+
+    print(reversed_string)  # Output: !drollW ,olleH
+
+
+
+
+
+
+
+
+new_stack = Stack()
+
+new_stack.push(10)
+
+new_stack.push(18)
+
+new_stack.push(14)
+
+new_stack.push(12)
+
+# new_stack.print_item()
+
+# new_stack.middle_element_delete()
+
+# new_stack.print_item()
+
+# new_stack.pop()
+
+new_stack.print_item()
+
+new_stack.find_middle()
