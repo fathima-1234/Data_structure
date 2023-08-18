@@ -1,0 +1,15 @@
+import heapq
+
+def heap_sort(nums):
+    heap = [-num for num in nums]  # Create max heap using negation
+    heapq.heapify(heap)  # Convert the list to a heap
+    sorted_nums = []
+    
+    while heap:
+        sorted_nums.append(-heapq.heappop(heap))  # Pop the largest element
+    return sorted_nums
+
+# Example usage
+arr = [12, 11, 13, 5, 6, 7]
+sorted_arr = heap_sort(arr)
+print(sorted_arr)  # Output: [5, 6, 7, 11, 12, 13]

@@ -1,0 +1,47 @@
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+    def insert(self, data):
+        if self.key is None:
+            self.key = data
+            return
+
+        if self.key == data:
+            return  # if data becomes equal
+
+        if data < self.key:
+            if self.left:
+                self.left.insert(data)
+            else:
+                self.left = TreeNode(data)
+        else:
+            if self.right:
+                self.right.insert(data)
+            else:
+                self.right = TreeNode(data)
+def find_closest_value(root, target,closest=int()):
+   
+    if root is None:
+        return closest
+    
+    if abs(target - root.key) < abs(target - closest):
+        closest = root.key
+        
+    if target < root.key:
+        return find_closest_value(root.left, target,closest)
+    elif target > root.key:
+        return find_closest_value(root.right, target,closest)
+    else:
+        return root.key
+
+# Example usage
+root = TreeNode(10)
+values = [20, 11, 6, 13, -1, 8, 30, 15]
+for val in values:
+    root.insert(val)  # Assuming you have an insert method in TreeNode class
+
+target_value = 12
+closest_value = find_closest_value(root, target_value)
+print("Closest value to", target_value, "is", closest_value)
