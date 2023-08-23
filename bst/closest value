@@ -21,6 +21,24 @@ class TreeNode:
                 self.right.insert(data)
             else:
                 self.right = TreeNode(data)
+    
+    def find_closest_value(self, target):
+        closest = self.key
+        current = self
+
+        while current:
+            if abs(target - current.key) < abs(target - closest) and current.key != target:
+                closest = current.key
+
+            if target < current.key:
+                current = current.left
+            elif target > current.key:
+                current = current.right
+            else:
+                break
+
+        return closest
+# with recursion
 def find_closest_value(root, target,closest=int()):
    
     if root is None:
